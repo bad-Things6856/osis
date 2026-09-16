@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OSIS — How Mobile Devices Work</title>
+    <meta name="description"
+          content="OSIS explores how modern mobile devices work, from hardware and operating systems to applications, APIs and development ecosystems.">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Optional favicon -->
+    <link rel="icon" href="assets/images/favicon.png">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         READING PROGRESS
+    ========================================================== -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+    <header class="site-header" id="siteHeader">
+
+        <div class="header-container">
+
+            <a href="#home" class="brand">
+                <span class="brand-mark">O</span>
+
+                <span class="brand-text">
+                    <strong>OSIS</strong>
+                    <small>HOW DEVICES WORK</small>
+                </span>
+            </a>
+
+
+            <nav class="desktop-nav" id="desktopNav">
+
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#hardware" class="nav-link">Hardware</a>
+                <a href="#android" class="nav-link">Android</a>
+                <a href="#ios" class="nav-link">iOS</a>
+                <a href="#comparison" class="nav-link">Compare</a>
+                <a href="#resources" class="nav-link">Resources</a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <button class="icon-button"
+                        id="searchButton"
+                        aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button class="icon-button"
+                        id="themeButton"
+                        aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="menu-button"
+                        id="menuButton"
+                        aria-label="Open navigation"
+                        aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a href="#home">Home</a>
+            <a href="#hardware">Hardware</a>
+            <a href="#android">Android</a>
+            <a href="#ios">iOS</a>
+            <a href="#comparison">Comparison</a>
+            <a href="#resources">Resources</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         SEARCH OVERLAY
+    ========================================================== -->
+    <div class="search-overlay" id="searchOverlay">
+
+        <div class="search-box">
+
+            <button class="close-search"
+                    id="closeSearch"
+                    aria-label="Close search">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="search-label">SEARCH OSIS</span>
+
+            <h2>Find something</h2>
+
+            <div class="search-input-wrapper">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search Android, iOS, CPU, APIs..."
+                    autocomplete="off">
+
+            </div>
+
+            <div class="search-results" id="searchResults">
+
+                <p class="search-hint">
+                    Start typing to search this page.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+        <section class="hero section" id="home">
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        A DIGITAL EXPLORATION
+                    </div>
+
+                    <h1>
+                        How does a
+                        <span class="accent-text">device</span>
+
+                      
