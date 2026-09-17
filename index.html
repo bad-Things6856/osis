@@ -1,636 +1,77 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>OSIS — How Devices Work</title>
-
-    <meta name="description"
-          content="OSIS explores how modern mobile devices work, from hardware and operating systems to applications, APIs and development ecosystems.">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A tiny, playful guide to Android and iOS.">
+  <title>OSIS.exe — Android vs iOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- Reading Progress -->
-    <div class="reading-progress" id="readingProgress"></div>
-
-
-    <!-- Header -->
-    <header class="site-header" id="siteHeader">
-
-        <div class="header-container">
-
-            <a href="#home" class="brand">
-                <span class="brand-mark">O</span>
-
-                <span class="brand-text">
-                    <strong>OSIS</strong>
-                    <small>HOW DEVICES WORK</small>
-                </span>
-            </a>
-
-            <nav class="desktop-nav" id="desktopNav">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#hardware" class="nav-link">Hardware</a>
-                <a href="#android" class="nav-link">Android</a>
-                <a href="#ios" class="nav-link">iOS</a>
-                <a href="#comparison" class="nav-link">Compare</a>
-                <a href="#resources" class="nav-link">Resources</a>
-            </nav>
-
-            <div class="header-actions">
-
-                <button class="icon-button"
-                        id="searchButton"
-                        aria-label="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-
-                <button class="icon-button"
-                        id="themeButton"
-                        aria-label="Toggle theme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-
-                <button class="menu-button"
-                        id="menuButton"
-                        aria-label="Open navigation"
-                        aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-        <nav class="mobile-nav" id="mobileNav">
-            <a href="#home">Home</a>
-            <a href="#hardware">Hardware</a>
-            <a href="#android">Android</a>
-            <a href="#ios">iOS</a>
-            <a href="#comparison">Comparison</a>
-            <a href="#resources">Resources</a>
-        </nav>
-
-    </header>
-
-
-    <!-- Search Overlay -->
-    <div class="search-overlay" id="searchOverlay">
-
-        <div class="search-box">
-
-            <button class="close-search"
-                    id="closeSearch"
-                    aria-label="Close search">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <span class="search-label">SEARCH OSIS</span>
-
-            <h2>Find something</h2>
-
-            <div class="search-input-wrapper">
-                <i class="fa-solid fa-magnifying-glass"></i>
-
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="Search Android, iOS, CPU, APIs..."
-                    autocomplete="off">
-            </div>
-
-            <div class="search-results" id="searchResults"></div>
-
-        </div>
-
-    </div>
-
-
-    <main>
-
-        <!-- Hero -->
-        <section class="hero section" id="home">
-
-            <div class="container hero-grid">
-
-                <div class="hero-content">
-
-                    <div class="eyebrow">
-                        <span class="eyebrow-dot"></span>
-                        A DIGITAL EXPLORATION
-                    </div>
-
-                    <h1>
-                        How does a
-                        <span class="accent-text">device</span>
-                        actually work?
-                    </h1>
-
-                    <p class="hero-description">
-                        From the moment you touch a screen to the moment
-                        an application responds, thousands of hardware and
-                        software components work together.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#hardware" class="button button-primary">
-                            Explore the system
-                            <i class="fa-solid fa-arrow-down"></i>
-                        </a>
-
-                        <a href="#android" class="button button-secondary">
-                            Explore Android
-                        </a>
-                    </div>
-
-                    <div class="hero-meta">
-                        <span>
-                            <i class="fa-regular fa-clock"></i>
-                            Reading time: 15 min
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-layer-group"></i>
-                            2 operating systems
-                        </span>
-                    </div>
-
-                </div>
-
-
-                <div class="hero-visual">
-
-                    <div class="device-card">
-
-                        <div class="device-top">
-                            <span>DEVICE / 01</span>
-                            <span class="status-dot"></span>
-                        </div>
-
-                        <div class="phone">
-
-                            <div class="phone-camera"></div>
-
-                            <div class="phone-screen">
-
-                                <div class="screen-time">
-                                    09:41
-                                </div>
-
-                                <div class="screen-icons">
-                                    <i class="fa-solid fa-wifi"></i>
-                                    <i class="fa-solid fa-signal"></i>
-                                    <i class="fa-solid fa-battery-three-quarters"></i>
-                                </div>
-
-                                <div class="screen-title">
-                                    OSIS
-                                </div>
-
-                                <div class="screen-subtitle">
-                                    SYSTEM ONLINE
-                                </div>
-
-                                <div class="system-lines">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="device-info">
-
-                            <div>
-                                <strong>CPU</strong>
-                                <span>Processing</span>
-                            </div>
-
-                            <div>
-                                <strong>RAM</strong>
-                                <span>Memory</span>
-                            </div>
-
-                            <div>
-                                <strong>OS</strong>
-                                <span>Software</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Introduction -->
-        <section class="intro section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-number">01</span>
-
-                    <div>
-                        <span class="eyebrow">START HERE</span>
-
-                        <h2>
-                            A smartphone is more than
-                            <span>just a screen.</span>
-                        </h2>
-                    </div>
-
-                </div>
-
-
-                <div class="intro-grid">
-
-                    <div class="intro-text">
-
-                        <p class="lead">
-                            A modern mobile device is a complete computing
-                            system packed into a small enclosure.
-                        </p>
-
-                        <p>
-                            Hardware receives physical input, processors
-                            execute instructions, memory temporarily stores
-                            information, and the operating system coordinates
-                            everything.
-                        </p>
-
-                        <p>
-                            Applications sit above this foundation and use
-                            operating-system services and APIs to interact
-                            with the device.
-                        </p>
-
-                    </div>
-
-
-                    <div class="intro-facts">
-
-                        <div class="fact">
-                            <span>01</span>
-                            <strong>Hardware</strong>
-                            <p>The physical components of the device.</p>
-                        </div>
-
-                        <div class="fact">
-                            <span>02</span>
-                            <strong>Operating System</strong>
-                            <p>Coordinates hardware and software.</p>
-                        </div>
-
-                        <div class="fact">
-                            <span>03</span>
-                            <strong>Applications</strong>
-                            <p>Software users interact with directly.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Hardware -->
-        <section class="hardware section" id="hardware">
-
-            <div class="container">
-
-                <div class="section-heading centered">
-
-                    <span class="section-number">02</span>
-
-                    <span class="eyebrow">
-                        THE FOUNDATION
-                    </span>
-
-                    <h2>
-                        Hardware
-                        <span>inside the device</span>
-                    </h2>
-
-                    <p>
-                        Before Android or iOS can do anything,
-                        physical hardware has to receive, process,
-                        store and output information.
-                    </p>
-
-                </div>
-
-
-                <div class="hardware-grid">
-
-                    <article class="hardware-card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-
-                        <span class="card-number">01</span>
-
-                        <h3>CPU</h3>
-
-                        <p>
-                            Executes instructions and performs the
-                            calculations required by applications
-                            and the operating system.
-                        </p>
-
-                        <span class="card-tag">PROCESSING</span>
-                    </article>
-
-
-                    <article class="hardware-card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-memory"></i>
-                        </div>
-
-                        <span class="card-number">02</span>
-
-                        <h3>RAM</h3>
-
-                        <p>
-                            Provides temporary working space for
-                            programs and data currently being used.
-                        </p>
-
-                        <span class="card-tag">MEMORY</span>
-                    </article>
-
-
-                    <article class="hardware-card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-hard-drive"></i>
-                        </div>
-
-                        <span class="card-number">03</span>
-
-                        <h3>Storage</h3>
-
-                        <p>
-                            Keeps applications, files, operating
-                            system data and user information.
-                        </p>
-
-                        <span class="card-tag">DATA</span>
-                    </article>
-
-
-                    <article class="hardware-card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-display"></i>
-                        </div>
-
-                        <span class="card-number">04</span>
-
-                        <h3>Display</h3>
-
-                        <p>
-                            Converts graphical information into
-                            visible pixels that users can interact with.
-                        </p>
-
-                        <span class="card-tag">OUTPUT</span>
-                    </article>
-
-
-                    <article class="hardware-card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-camera"></i>
-                        </div>
-
-                        <span class="card-number">05</span>
-
-                        <h3>Sensors</h3>
-
-                        <p>
-                            Detect movement, orientation, light,
-                            proximity and other physical conditions.
-                        </p>
-
-                        <span class="card-tag">INPUT</span>
-                    </article>
-
-
-                    <article class="hardware-card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-
-                        <span class="card-number">06</span>
-
-                        <h3>Power</h3>
-
-                        <p>
-                            Battery and power-management systems
-                            control how electrical energy is distributed.
-                        </p>
-
-                        <span class="card-tag">ENERGY</span>
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- System Flow -->
-        <section class="system-flow section">
-
-            <div class="container">
-
-                <div class="section-heading centered">
-
-                    <span class="section-number">03</span>
-
-                    <span class="eyebrow">THE BIG PICTURE</span>
-
-                    <h2>
-                        From touch
-                        <span>to response.</span>
-                    </h2>
-
-                </div>
-
-
-                <div class="flow">
-
-                    <div class="flow-item">
-                        <span class="flow-number">01</span>
-                        <i class="fa-solid fa-hand-pointer"></i>
-                        <h3>Input</h3>
-                        <p>You touch the display.</p>
-                    </div>
-
-                    <div class="flow-line"></div>
-
-                    <div class="flow-item">
-                        <span class="flow-number">02</span>
-                        <i class="fa-solid fa-layer-group"></i>
-                        <h3>OS</h3>
-                        <p>The operating system processes the event.</p>
-                    </div>
-
-                    <div class="flow-line"></div>
-
-                    <div class="flow-item">
-                        <span class="flow-number">03</span>
-                        <i class="fa-solid fa-microchip"></i>
-                        <h3>CPU</h3>
-                        <p>Instructions are executed.</p>
-                    </div>
-
-                    <div class="flow-line"></div>
-
-                    <div class="flow-item">
-                        <span class="flow-number">04</span>
-                        <i class="fa-solid fa-display"></i>
-                        <h3>Output</h3>
-                        <p>The display updates.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Android -->
-        <section class="platform android-section section" id="android">
-
-            <div class="container">
-
-                <div class="platform-header">
-
-                    <div>
-
-                        <span class="platform-label android-label">
-                            PLATFORM 01
-                        </span>
-
-                        <h2>Android</h2>
-
-                        <p>
-                            An operating system ecosystem built around
-                            the Linux kernel, Android framework,
-                            Android Runtime and application layer.
-                        </p>
-
-                    </div>
-
-                    <div class="platform-symbol android-symbol">
-                        ANDROID
-                    </div>
-
-                </div>
-
-
-                <div class="architecture">
-
-                    <div class="architecture-layer application-layer">
-                        <span>05</span>
-                        <div>
-                            <strong>Applications</strong>
-                            <small>Apps users interact with</small>
-                        </div>
-                    </div>
-
-                    <div class="architecture-arrow">↓</div>
-
-                    <div class="architecture-layer">
-                        <span>04</span>
-                        <div>
-                            <strong>Android Framework</strong>
-                            <small>System services and APIs</small>
-                        </div>
-                    </div>
-
-                    <div class="architecture-arrow">↓</div>
-
-                    <div class="architecture-layer">
-                        <span>03</span>
-                        <div>
-                            <strong>Android Runtime</strong>
-                            <small>Runtime environment for applications</small>
-                        </div>
-                    </div>
-
-                    <div class="architecture-arrow">↓</div>
-
-                    <div class="architecture-layer">
-                        <span>02</span>
-                        <div>
-                            <strong>Hardware Abstraction Layer</strong>
-                            <small>Connects framework software to hardware</small>
-                        </div>
-                    </div>
-
-                    <div class="architecture-arrow">↓</div>
-
-                    <div class="architecture-layer kernel-layer">
-                        <span>01</span>
-                        <div>
-                            <strong>Linux Kernel</strong>
-                            <small>Core hardware and system management</small>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="platform-info-grid">
-
-                    <div class="info-block">
-                        <span>KERNEL</span>
-                        <h3>Linux</h3>
-                        <p>
-                            Provides core operating-system functions
-                            such as process, memory and hardware management.
-                        </p>
-                    </div>
-
-                    <div class="info-block">
-                        <span>DEVELOPMENT</span>
-                        <h3>Android Studio</h3>
-                        <p>
-                            The primary integrated development environment
-                            used for Android application development.
-                        </p>
-                    </div>
-
-                    <div class="info-block">
-                        <span>LANGUAGE</span>
-                        <h3>Kotlin</h3>
-                        <p>
-                            A modern programming language widely used
-                            for Android development.
-                        </p>
-                    </div>
-
-       
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="logo" href="#top" aria-label="OSIS home"><span>O</span>SIS<small>.exe</small></a>
+    <nav aria-label="Main navigation">
+      <a href="#android">Android</a><a href="#ios">iOS</a><a href="#compare">vs.</a>
+    </nav>
+    <button class="mode-toggle" id="modeToggle" type="button" aria-label="Toggle color mode">☼</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <p class="kicker"><span class="live-dot"></span> DIGITAL FIELD NOTES / 01</p>
+        <h1>Your phone<br>has <em>layers.</em></h1>
+        <p class="intro">A bite-sized tour of the tiny universe behind every tap, swipe and “just one more scroll.”</p>
+        <a class="sticker-button" href="#compare">START EXPLORING <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Decorative phone illustration">
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span>
+        <div class="phone phone-hero"><div class="phone-island"></div><div class="screen"><span class="screen-time">09:41</span><b>HELLO<br>WORLD</b><span class="screen-chip">SYSTEM OK ✓</span></div></div>
+        <div class="orbit orbit-one">TAP / SWIPE / REPEAT</div><div class="orbit orbit-two">100% ONLINE</div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Topics"><div>CPU ✦ APPS ✦ UI ✦ BATTERY ✦ CLOUD ✦ CPU ✦ APPS ✦ UI ✦ BATTERY ✦ CLOUD ✦</div></section>
+
+    <section class="section-wrap quick-start" id="compare">
+      <div class="section-title"><p class="kicker">02 / THE QUICK TAKE</p><h2>Two moods.<br><em>One screen.</em></h2></div>
+      <div class="choice-grid">
+        <article class="os-card android-card" id="android">
+          <div class="card-top"><span class="pill">01 / OPEN</span><span class="card-symbol">●</span></div>
+          <h3>Android</h3><p>Playful, flexible and built for tinkerers.</p>
+          <button class="reveal-button" data-target="androidMore">peek inside +</button>
+          <div class="reveal" id="androidMore"><strong>Under the hood:</strong> Linux kernel → Android Runtime → your apps.</div>
+        </article>
+        <article class="os-card ios-card" id="ios">
+          <div class="card-top"><span class="pill">02 / FOCUSED</span><span class="card-symbol">◒</span></div>
+          <h3>iOS</h3><p>Polished, private and designed as one neat ecosystem.</p>
+          <button class="reveal-button" data-target="iosMore">peek inside +</button>
+          <div class="reveal" id="iosMore"><strong>Under the hood:</strong> Darwin core → Cocoa Touch → your apps.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-wrap interaction-zone">
+      <div class="section-title"><p class="kicker">03 / WHAT HAPPENS WHEN…</p><h2>You tap<br><em>a button.</em></h2></div>
+      <div class="flow-box">
+        <button class="tap-button" id="tapButton" type="button">TAP ME</button>
+        <div class="flow-steps"><span><b>01</b> finger</span><i>→</i><span><b>02</b> software</span><i>→</i><span><b>03</b> pixels</span></div>
+        <p id="tapMessage">Your screen is waiting…</p>
+      </div>
+    </section>
+
+    <section class="section-wrap mini-facts">
+      <p class="kicker">04 / POCKET FACTS</p>
+      <div class="fact-row"><button class="fact-tab active" data-fact="cpu">CPU</button><button class="fact-tab" data-fact="ram">RAM</button><button class="fact-tab" data-fact="api">API</button></div>
+      <div class="fact-display"><span class="fact-icon">✦</span><p id="factText">The CPU is the device’s tiny decision-maker. Fast little brain, big main-character energy.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap"><span>OSIS.exe / made for curious humans</span><a href="#top">back to top ↑</a></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>
