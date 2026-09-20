@@ -1,1 +1,232 @@
+/*
+ * Wild Walk - a small text game in C
+ * Compile:  gcc wild_walk.c -o wild_walk
+ * Run:      ./wild_walk
+ */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define GOAL_STEPS 20   /* steps needed to reach the village */
+
+struct Player {
+    char name[30];
+    int hp;
+    int maxhp;
+    int strength;
+    char tool[20];
+    int tool_dmg;
+    int herbs;
+    int steps;
+    int kills;
+};
+
+struct Enemy {
+    char name[20];
+    int hp;
+    int dmg;
+};
+
+/* reads a number between lo and hi, keeps asking until it gets one */
+int ask(int lo, int hi)
+{
+    char line[50];
+    int n;
+
+    while (1) {
+        printf("> ");
+        if (fgets(line, sizeof(line), stdin) == NULL)
+            exit(0);
+        n = atoi(line);
+        if (n >= lo && n <= hi)
+            return n;
+        printf("Pick a number from %d to %d.\n", lo, hi);
+    }
+}
+
+void make_player(struct Player *p)
+{
+    int choice;
+
+    printf("=== WILD WALK ===\n\n");
+    printf("What is your name, traveller? ");
+    fgets(p->name, sizeof(p->name), stdin);
+    p->name[strcspn(p->name, "\n")] = '\0';
+    if (strlen(p->name) == 0)
+        strcpy(p->name, "Stranger");
+
+    printf("\nWho are you, %s?\n", p->name);
+    printf("1. Farmer  (tough, lots of health)\n");
+    printf("2. Hunter  (balanced)\n");
+    printf("3. Thief   (weak body, hits harder)\n");
+    choice = ask(1, 3);
+
+    if (choice == 1) { p->maxhp = 60; p->strength = 3; }
+    else if (choice == 2) { p->maxhp = 45; p->strength = 5; }
+    else { p->maxhp = 35; p->strength = 8; }
+    p->hp = p->maxhp;
+
+    printf("\nPick your tool:\n");
+    printf("1. Rusty sword  (damage 6)\n");
+    printf("2. Wood axe     (damage 8, but heavy)\n");
+    printf("3. Short knife  (damage 4)\n");
+    choice = ask(1, 3);
+
+    if (choice == 1) { strcpy(p->tool, "rusty sword"); p->tool_dmg = 6; }
+    else if (choice == 2) { strcpy(p->tool, "wood axe"); p->tool_dmg = 8; }
+    else { strcpy(p->tool, "short knife"); p->tool_dmg = 4; }
+
+    p->herbs = 2;
+    p->steps = 0;
+    p->kills = 0;
+
+    printf("\n%s the traveller, armed with a %s. Good luck.\n", p->name, p->tool);
+}
+
+void make_enemy(struct Enemy *e, int steps)
+{
+    /* deeper in the forest = tougher enemies */
+    int roll = rand() % 4;
+    if (steps > 12)
+        roll = 2 + rand() % 2;
+
+    if (roll == 0) { strcpy(e->name, "Wild boar"); e->hp = 14; e->dmg = 5; }
+    else if (roll == 1) { strcpy(e->name, "Wolf"); e->hp = 18; e->dmg = 6; }
+    else if (roll == 2) { strcpy(e->name, "Bandit"); e->hp = 24; e->dmg = 8; }
+    else { strcpy(e->name, "Bear"); e->hp = 32; e->dmg = 10; }
+}
+
+/* returns 1 if the player is still alive, 0 if dead */
+int fight(struct Player *p)
+{
+    struct Enemy e;
+    int choice, dmg;
+
+    make_enemy(&e, p->steps);
+    printf("\n!! A %s jumps out at you !!\n", e.name);
+
+    while (e.hp > 0 && p->hp > 0) {
+        printf("\n[%s HP: %d]   [You HP: %d/%d]   [Herbs: %d]\n",
+               e.name, e.hp, p->hp, p->maxhp, p->herbs);
+        printf("1. Attack with %s\n", p->tool);
+        printf("2. Eat a herb (+15 HP)\n");
+        printf("3. Try to run\n");
+        choice = ask(1, 3);
+
+        if (choice == 1) {
+            dmg = p->tool_dmg + rand() % (p->strength + 1);
+            e.hp -= dmg;
+            printf("You hit the %s for %d damage.\n", e.name, dmg);
+        }
+        else if (choice == 2) {
+            if (p->herbs > 0) {
+                p->herbs--;
+                p->hp += 15;
+                if (p->hp > p->maxhp)
+                    p->hp = p->maxhp;
+                printf("You chew a herb. Feels better.\n");
+            } else {
+                printf("No herbs left! You lose your turn.\n");
+            }
+        }
+        else {
+            if (rand() % 100 < 40) {
+                printf("You got away!\n");
+                return 1;
+            }
+            printf("Couldn't escape!\n");
+        }
+
+        /* enemy turn (only if it's still alive) */
+        if (e.hp > 0) {
+            dmg = 1 + rand() % e.dmg;
+            p->hp -= dmg;
+            printf("The %s hits you for %d damage.\n", e.name, dmg);
+        }
+    }
+
+    if (p->hp <= 0)
+        return 0;
+
+    printf("\nYou killed the %s!\n", e.name);
+    p->kills++;
+
+    /* small chance the enemy drops a herb */
+    if (rand() % 100 < 30) {
+        p->herbs++;
+        printf("It dropped a herb. You take it.\n");
+    }
+    return 1;
+}
+
+void walk_event(struct Player *p)
+{
+    int roll = rand() % 100;
+
+    if (roll < 40) {
+        /* enemy */
+        if (!fight(p))
+            return;
+    }
+    else if (roll < 60) {
+        int heal = 8 + rand() % 8;
+        printf("\nYou find a patch of healing plants. +%d HP.\n", heal);
+        p->hp += heal;
+        if (p->hp > p->maxhp)
+            p->hp = p->maxhp;
+        if (rand() % 2 == 0) {
+            p->herbs++;
+            printf("You also pick a herb for later.\n");
+        }
+    }
+    else if (roll < 70) {
+        printf("\nYou step on a hidden thorn bush. -3 HP.\n");
+        p->hp -= 3;
+    }
+    else {
+        printf("\nNothing here. Just wind and trees.\n");
+    }
+}
+
+int main(void)
+{
+    struct Player p;
+    int choice;
+
+    srand((unsigned int)time(NULL));
+    make_player(&p);
+
+    while (p.hp > 0 && p.steps < GOAL_STEPS) {
+        printf("\n--- Step %d/%d | HP %d/%d | Herbs %d ---\n",
+               p.steps, GOAL_STEPS, p.hp, p.maxhp, p.herbs);
+        printf("The path splits. Where to?\n");
+        printf("1. Go forward\n");
+        printf("2. Turn left\n");
+        printf("3. Turn right\n");
+        choice = ask(1, 3);
+
+        if (choice == 1)
+            printf("You walk straight ahead...\n");
+        else if (choice == 2)
+            printf("You turn left, into the bushes...\n");
+        else
+            printf("You turn right, along a small stream...\n");
+
+        p.steps++;
+        walk_event(&p);
+    }
+
+    printf("\n===💔🥀😔===\n");
+    if (p.hp <= 0) {
+        printf("%s fell in the forest after %d steps.\n", p.name, p.steps);
+        printf("GAME OVER\n");
+    } else {
+        printf("%s made it out and sees the village lights!\n", p.name);
+        printf("You beat %d enemies on the way. YOU WIN!\n", p.kills);
+    }
+    printf("====🤩💖====\n");
+
+    return 0;
+}
