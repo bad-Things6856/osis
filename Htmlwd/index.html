@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics and Microcontrollers - A Simple Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>From Glass Tubes to Tiny Brains</h1>
+    <p>A simple story of electronics, and how microcontrollers came to run the world around us.</p>
+  </header>
+
+  <nav>
+    <a href="#history">History</a>
+    <a href="#micro">Microcontrollers</a>
+    <a href="#where">Where they are used</a>
+    <a href="#start">Get started</a>
+  </nav>
+
+  <main>
+
+    <section id="history">
+      <h2>Electronics: a short history</h2>
+      <p>
+        Electronics is the science of controlling the flow of electrons to do useful work,
+        like playing sound, showing pictures, or doing calculations. It started big and
+        clumsy, and slowly became small and clever.
+      </p>
+
+      <ul class="timeline">
+        <li>
+          <span class="year">1904</span>
+          <div>
+            <h3>The vacuum tube</h3>
+            <p>John Ambrose Fleming invents the first vacuum tube diode. Radios and early
+            computers used these glass tubes. They were big, hot and burned out often.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">1947</span>
+          <div>
+            <h3>The transistor</h3>
+            <p>Scientists at Bell Labs build the first transistor. It does the job of a tube
+            but is smaller, cooler and much more reliable.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">1958</span>
+          <div>
+            <h3>The integrated circuit</h3>
+            <p>Jack Kilby shows that many parts can be built on one small piece of material.
+            This is the "chip", and it changed everything.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">1971</span>
+          <div>
+            <h3>The microprocessor</h3>
+            <p>Intel releases the 4004, a whole processor on one chip. Computers could now
+            become small and cheap.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">1970s</span>
+          <div>
+            <h3>The first microcontrollers</h3>
+            <p>Companies like Texas Instruments and Intel put a processor, memory and input/output
+            pins together on a single chip. Now one small part could run a whole gadget.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">2005</span>
+          <div>
+            <h3>Arduino</h3>
+            <p>A cheap, friendly board built for students. Anyone could now write a few lines
+            of code and make an LED blink or a robot move.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">2010s</span>
+          <div>
+            <h3>Wi-Fi chips and Raspberry Pi</h3>
+            <p>Chips like the ESP8266 and ESP32 add Wi-Fi for a few dollars. The Internet of
+            Things (IoT) takes off: smart bulbs, sensors, and connected devices.</p>
+          </div>
+        </li>
+        <li>
+          <span class="year">Today</span>
+          <div>
+            <h3>Tiny chips with AI</h3>
+            <p>Modern microcontrollers can run small machine learning models, listen for
+            voice commands, and last for months on a battery. Open designs like RISC-V are
+            also growing fast.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="micro">
+      <h2>What is a microcontroller?</h2>
+      <p>
+        A microcontroller (MCU) is a tiny computer on a single chip. It has a processor,
+        a little memory, and pins that connect to the outside world. You write a program,
+        load it once, and it keeps running the same job again and again.
+      </p>
+
+      <div class="box">
+        <h3>Microcontroller vs microprocessor</h3>
+        <table>
+          <tr><th></th><th>Microcontroller</th><th>Microprocessor</th></tr>
+          <tr><td>What it is</td><td>Whole small computer on one chip</td><td>Only the processing part (CPU)</td></tr>
+          <tr><td>Memory</td><td>Built in</td><td>External chips needed</td></tr>
+          <tr><td>Power use</td><td>Very low</td><td>High</td></tr>
+          <tr><td>Best for</td><td>One specific job</td><td>General computers, phones</td></tr>
+          <tr><td>Example</td><td>Arduino Uno, ESP32</td><td>Laptop or PC processor</td></tr>
+        </table>
+      </div>
+
+      <h3>Popular microcontroller boards</h3>
+      <ul>
+        <li><strong>Arduino Uno</strong> - best for beginners, huge community.</li>
+        <li><strong>ESP32</strong> - has Wi-Fi and Bluetooth, great for IoT projects.</li>
+        <li><strong>Raspberry Pi Pico</strong> - cheap and easy, works with C and MicroPython.</li>
+        <li><strong>STM32</strong> - powerful chips used in many real products.</li>
+      </ul>
+    </section>
+
+    <section id="where">
+      <h2>Where are microcontrollers used?</h2>
+      <p>Almost everywhere. A modern home may have dozens of them hiding inside things.</p>
+      <div class="cards">
+        <div class="card">Washing machines</div>
+        <div class="card">TV remotes</div>
+        <div class="card">Cars (many per car)</div>
+        <div class="card">Microwave ovens</div>
+        <div class="card">Smart watches</div>
+        <div class="card">Toys and drones</div>
+        <div class="card">Medical devices</div>
+        <div class="card">Factory machines</div>
+      </div>
+    </section>
+
+    <section id="start">
+      <h2>How to get started</h2>
+      <ol>
+        <li>Buy an Arduino Uno or ESP32 board and a USB cable.</li>
+        <li>Install the free Arduino IDE.</li>
+        <li>Upload the "Blink" program below.</li>
+        <li>Then try a button, a sensor, or a small motor.</li>
+      </ol>
+
+      <p>Here is the classic first program. It turns the built-in LED on and off every second:</p>
+
+<pre><code>void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);  // LED on
+  delay(1000);                      // wait 1 second
+  digitalWrite(LED_BUILTIN, LOW);   // LED off
+  delay(1000);
+}</code></pre>
+
+      <p>
+        If you already know basic C, you are ahead. Arduino code is just C/C++ with
+        some helpful functions added.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Written in simple words for curious learners. Keep building!</p>
+  </footer>
+
+</body>
+</html>
