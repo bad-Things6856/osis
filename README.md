@@ -5,4 +5,4 @@ example of some\
 [# C programming assignment](https://github.com/bad-Things6856/osis/blob/osis/C/)
 \
 2
-[# C programming assignment](https://bad-things6856.github.io/baguet/)
+[# Microcontroller guide](https://bad-things6856.github.io/baguet/)
