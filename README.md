@@ -8,5 +8,4 @@ example of some\
 [# Microcontroller guide](https://bad-things6856.github.io/baguet/)
 \
 3
-
-[# Microcontroller guide](https://github.com/bad-Things6856/CO-esnmt/tree/main/assignments)
+[# list of my other assignment](https://github.com/bad-Things6856/CO-esnmt/tree/main/assignments)
