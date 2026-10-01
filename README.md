@@ -9,3 +9,22 @@ example of some\
 \
 3
 [# list of my other assignment](https://github.com/bad-Things6856/CO-esnmt/tree/main/assignments)
+\
+\
+\
+MY  PROJECT IDEA
+[DISPLAY](https://robu.in/product/dwin-dmg48270c043_05wtc-4-3-inch-480x272-ttl-rs232-hmi-lcd-display-capacitive-touch-8mb-flash-buzzer-sd-interface/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
