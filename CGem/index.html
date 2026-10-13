@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Slayer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="game-container">
+        <h1>Zombie Slayer</h1>
+
+        <div class="score-board">
+            Score: <span id="score">0</span>
+            &nbsp; | &nbsp;
+            Health: <span id="health">3</span>
+        </div>
+
+        <div id="game">
+            <div class="ground"></div>
+
+            <!-- Your player character -->
+            <img src="player.gif" id="player" alt="Player">
+
+            <!-- Zombies are added using JavaScript -->
+            <div id="zombies"></div>
+
+            <!-- Slash effect -->
+            <div id="slash">⚔️</div>
+
+            <div id="message">
+                <h2>Zombie Slayer</h2>
+                <p>Press SPACE or tap ATTACK to start!</p>
+                <button id="startBtn">START GAME</button>
+            </div>
+        </div>
+
+        <button id="attackBtn">⚔️ ATTACK</button>
+        <p class="instructions">
+            Press SPACE to slash zombies. Don't let them reach you!
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
