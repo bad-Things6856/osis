@@ -1,47 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zombie Slayer</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #222;
+            color: white;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        #game {
+            position: relative;
+            height: 300px;
+            background: #555;
+            overflow: hidden;
+            border-bottom: 20px solid #222;
+        }
+
+        #player {
+            position: absolute;
+            left: 80px;
+            bottom: 0;
+            font-size: 60px;
+        }
+
+        #zombie {
+            position: absolute;
+            bottom: 0;
+            width: 70px;
+            height: 90px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="game-container">
-        <h1>Zombie Slayer</h1>
+    <h1>Zombie Slayer</h1>
+    <h3>Score: <span id="score">0</span>
+        | Health: <span id="health">3</span></h3>
 
-        <div class="score-board">
-            Score: <span id="score">0</span>
-            &nbsp; | &nbsp;
-            Health: <span id="health">3</span>
-        </div>
-
-        <div id="game">
-            <div class="ground"></div>
-
-            <!-- Your player character -->
-            <img src="player.gif" id="player" alt="Player">
-
-            <!-- Zombies are added using JavaScript -->
-            <div id="zombies"></div>
-
-            <!-- Slash effect -->
-            <div id="slash">⚔️</div>
-
-            <div id="message">
-                <h2>Zombie Slayer</h2>
-                <p>Press SPACE or tap ATTACK to start!</p>
-                <button id="startBtn">START GAME</button>
-            </div>
-        </div>
-
-        <button id="attackBtn">⚔️ ATTACK</button>
-        <p class="instructions">
-            Press SPACE to slash zombies. Don't let them reach you!
-        </p>
+    <div id="game">
+        <div id="player">🧍</div>
+        <img id="zombie" src="zombie.gif" alt="Zombie">
     </div>
 
-    <script src="script.js"></script>
+    <button onclick="attack()">⚔️ SLASH</button>
+
+    <script>
+        let score = 0;
+        let health = 3;
+        let zombieX = 700;
+        let running = true;
+
+        const zombie = document.getElementById("zombie");
+
+        function attack() {
+            if (!running) return;
+
+            if (zombieX < 250) {
+                score += 10;
+                zombieX = 700;
+                document.getElementById("score").textContent = score;
+            }
+        }
+
+        setInterval(() => {
+            if (!running) return;
+
+            zombieX -= 5;
+            zombie.style.left = zombieX + "px";
+
+            if (zombieX < 100) {
+                health--;
+                zombieX = 700;
+
+                document.getElementById("health").textContent = health;
+
+                if (health <= 0) {
+                    running = false;
+                    alert("Game Over! Score: " + score);
+                }
+            }
+        }, 50);
+    </script>
+
 </body>
 </html>
