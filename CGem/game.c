@@ -1,19 +1,19 @@
 int score = 0;
 int health = 3;
-int zombieX = 700;
+int zombieX = 600;
 
-void update() {
+void moveZombie() {
     zombieX -= 5;
 
     if (zombieX < 100) {
+        zombieX = 600;
         health--;
-        zombieX = 700;
     }
 }
 
 void attack() {
     if (zombieX < 250) {
         score += 10;
-        zombieX = 700;
+        zombieX = 600;
     }
 }
