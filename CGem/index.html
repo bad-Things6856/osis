@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Zombie Slayer</title>
+
     <style>
         body {
             background: #222;
@@ -11,11 +12,11 @@
         }
 
         #game {
-            position: relative;
             height: 300px;
             background: #555;
+            position: relative;
             overflow: hidden;
-            border-bottom: 20px solid #222;
+            border-bottom: 10px solid #222;
         }
 
         #player {
@@ -27,9 +28,9 @@
 
         #zombie {
             position: absolute;
+            left: 600px;
             bottom: 0;
             width: 70px;
-            height: 90px;
         }
 
         button {
@@ -39,11 +40,12 @@
         }
     </style>
 </head>
+
 <body>
 
-    <h1>Zombie Slayer</h1>
-    <h3>Score: <span id="score">0</span>
-        | Health: <span id="health">3</span></h3>
+    <h1>🧟 Zombie Slayer</h1>
+
+    <h3>Score: <span id="score">0</span></h3>
 
     <div id="game">
         <div id="player">🧍</div>
@@ -54,40 +56,26 @@
 
     <script>
         let score = 0;
-        let health = 3;
-        let zombieX = 700;
-        let running = true;
-
-        const zombie = document.getElementById("zombie");
+        let zombieX = 600;
 
         function attack() {
-            if (!running) return;
-
             if (zombieX < 250) {
                 score += 10;
-                zombieX = 700;
-                document.getElementById("score").textContent = score;
+                document.getElementById("score").innerText = score;
+                zombieX = 600;
             }
         }
 
-        setInterval(() => {
-            if (!running) return;
+        setInterval(function () {
+            zombieX -= 3;
 
-            zombieX -= 5;
-            zombie.style.left = zombieX + "px";
-
-            if (zombieX < 100) {
-                health--;
-                zombieX = 700;
-
-                document.getElementById("health").textContent = health;
-
-                if (health <= 0) {
-                    running = false;
-                    alert("Game Over! Score: " + score);
-                }
+            if (zombieX < 0) {
+                zombieX = 600;
             }
-        }, 50);
+
+            document.getElementById("zombie").style.left =
+                zombieX + "px";
+        }, 30);
     </script>
 
 </body>
