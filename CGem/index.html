@@ -2,81 +2,20 @@
 <html>
 <head>
     <title>Zombie Slayer</title>
-
-    <style>
-        body {
-            background: #222;
-            color: white;
-            text-align: center;
-            font-family: Arial;
-        }
-
-        #game {
-            height: 300px;
-            background: #555;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 10px solid #222;
-        }
-
-        #player {
-            position: absolute;
-            left: 80px;
-            bottom: 0;
-            font-size: 60px;
-        }
-
-        #zombie {
-            position: absolute;
-            left: 600px;
-            bottom: 0;
-            width: 70px;
-        }
-
-        button {
-            padding: 12px 25px;
-            margin: 15px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <h1>🧟 Zombie Slayer</h1>
-
+    <h1>Zombie Slayer</h1>
     <h3>Score: <span id="score">0</span></h3>
+    <h3>Health: <span id="health">3</span></h3>
 
     <div id="game">
         <div id="player">🧍</div>
         <img id="zombie" src="zombie.gif" alt="Zombie">
     </div>
 
-    <button onclick="attack()">⚔️ SLASH</button>
+    <button onclick="attack()">SLASH ⚔️</button>
 
-    <script>
-        let score = 0;
-        let zombieX = 600;
-
-        function attack() {
-            if (zombieX < 250) {
-                score += 10;
-                document.getElementById("score").innerText = score;
-                zombieX = 600;
-            }
-        }
-
-        setInterval(function () {
-            zombieX -= 3;
-
-            if (zombieX < 0) {
-                zombieX = 600;
-            }
-
-            document.getElementById("zombie").style.left =
-                zombieX + "px";
-        }, 30);
-    </script>
-
+    <script src="game.js"></script>
 </body>
 </html>
