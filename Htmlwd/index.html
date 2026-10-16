@@ -4,159 +4,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSIS | Computing & Architecture</title>
+    <title>OSIS | NVIDIA Hardware</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="hardware-bg" aria-hidden="true">
-    <img src="images/cpu.jpg" class="bg-cpu" alt="">
-    <img src="images/laptop.jpg" class="bg-laptop" alt="">
-    <img src="images/gpu.jpg" class="bg-gpu" alt="">
-    <img src="images/dgx-spark.jpg" class="bg-spark" alt="">
-</div>
+
 <header>
-    <h2>OSIS<span>.</span></h2>
+    <a href="#" class="logo">OSIS<span>.</span></a>
     <nav>
-        <a href="#cpu">CPU</a>
-        <a href="#laptops">Laptops</a>
-        <a href="#microprocessors">Microprocessors</a>
+        <a href="#spark">DGX Spark</a>
+        <a href="#laptops">RTX Laptops</a>
+        <a href="#gpu">GPU Tech</a>
     </nav>
 </header>
 
 <main>
-    <section class="intro">
-        <p class="label">NOTES ON COMPUTING / 001</p>
-        <h1>Understanding<br>what's inside.</h1>
+    <section class="hero">
+        <p class="label">HARDWARE NOTES / NVIDIA</p>
+        <h1>Computing<br>at another scale.</h1>
         <p>
-            A small collection of notes about processors, laptop hardware
-            and the technology that makes modern computing possible.
+            Exploring NVIDIA's compact AI systems, RTX laptop
+            graphics and the silicon powering modern computing.
         </p>
+        <a class="button" href="#spark">Explore hardware ↓</a>
+
+        <!-- Optional hero image -->
+        <img class="hero-image"
+             src="images/nvidia-hero.jpg"
+             alt="NVIDIA hardware">
     </section>
 
-    <hr>
+    <section id="spark">
+        <p class="label">01 / PERSONAL AI COMPUTING</p>
+        <h2>NVIDIA DGX Spark</h2>
 
-    <section id="cpu">
-        <p class="label">01 / PROCESSING</p>
-        <h2>The CPU</h2>
+        <img class="feature-image"
+             src="images/dgx-spark.jpg"
+             alt="NVIDIA DGX Spark desktop AI system">
+
         <p>
-            The Central Processing Unit executes program instructions,
-            performs calculations and coordinates operations within
-            a computer. Its performance depends on more than clock speed:
-            architecture, core count, cache and power limits matter too.
+            DGX Spark brings NVIDIA's Grace Blackwell architecture
+            into a compact desktop system. It combines a 20-core
+            Arm CPU, Blackwell GPU architecture and 128 GB of
+            unified system memory for local AI development.
         </p>
 
-        <!-- Add a CPU image here later -->
-
-        <div class="processor">
-            <div class="processor-title">CPU / INTERNAL UNITS</div>
-
-            <button class="part active"
-                data-info="The ALU handles arithmetic operations and logical comparisons.">
-                ALU
-            </button>
-
-            <button class="part"
-                data-info="The Control Unit coordinates instruction execution and directs other units.">
-                Control Unit
-            </button>
-
-            <button class="part"
-                data-info="Registers are tiny, fast storage locations used during instruction execution.">
-                Registers
-            </button>
-
-            <button class="part"
-                data-info="Cache keeps frequently needed data close to the processor to reduce access delays.">
-                Cache
-            </button>
-
-            <p id="part-info" aria-live="polite">
-                The ALU handles arithmetic operations and logical comparisons.
-            </p>
+        <div class="specs">
+            <div><strong>128 GB</strong><span>Unified memory</span></div>
+            <div><strong>20-core</strong><span>Arm CPU</span></div>
+            <div><strong>Blackwell</strong><span>GPU architecture</span></div>
         </div>
-    </section>
 
-    <hr>
+        <a class="link"
+           href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
+           target="_blank" rel="noopener noreferrer">
+            Official DGX Spark page ↗
+        </a>
+    </section>
 
     <section id="laptops">
-        <p class="label">02 / PORTABLE COMPUTING</p>
-        <h2>Inside a laptop</h2>
+        <p class="label">02 / MOBILE GRAPHICS</p>
+        <h2>GeForce RTX laptops</h2>
+
+        <img class="feature-image"
+             src="images/rtx-laptop.jpg"
+             alt="Laptop with NVIDIA RTX graphics">
+
         <p>
-            A laptop is a balance between performance, battery life,
-            temperature and size. Its processor shares a limited power
-            and cooling budget with the rest of the system.
+            RTX laptops combine a mobile GPU with a CPU, memory
+            and a compact cooling system. Depending on the model,
+            they can accelerate games, 3D rendering, video editing
+            and AI applications.
         </p>
 
-        <!-- Add a laptop image here later -->
+        <div class="cards">
+            <article>
+                <h3>RTX graphics</h3>
+                <p>Dedicated GPU hardware for graphics rendering and supported AI workloads.</p>
+            </article>
 
-        <div class="facts">
-            <div>
-                <h3>Cooling</h3>
-                <p>Heat pipes, fans or vapor chambers move heat away from hot components.</p>
-            </div>
+            <article>
+                <h3>DLSS</h3>
+                <p>AI-assisted graphics techniques that can improve image quality and performance in supported games.</p>
+            </article>
 
-            <div>
-                <h3>Memory</h3>
-                <p>RAM holds active programs and data so the CPU can access them quickly.</p>
-            </div>
-
-            <div>
-                <h3>Power</h3>
-                <p>Processors adjust their operating speed and power to meet workload and thermal limits.</p>
-            </div>
+            <article>
+                <h3>Max-Q</h3>
+                <p>Technologies designed to balance laptop performance, efficiency, cooling and battery life.</p>
+            </article>
         </div>
+
+        <a class="link"
+           href="https://www.nvidia.com/en-in/geforce/laptops/50-series/"
+           target="_blank" rel="noopener noreferrer">
+            RTX 50-series laptop details ↗
+        </a>
     </section>
 
-    <hr>
+    <section id="gpu">
+        <p class="label">03 / GPU ARCHITECTURE</p>
+        <h2>Inside NVIDIA GPUs</h2>
 
-    <section id="microprocessors">
-        <p class="label">03 / INTEGRATED HARDWARE</p>
-        <h2>Microprocessors</h2>
-        <p>
-            A microprocessor is an integrated circuit that implements
-            a processor. Modern chips can contain multiple CPU cores,
-            cache and other supporting hardware.
-        </p>
+        <img class="feature-image"
+             src="images/nvidia-chip.jpg"
+             alt="NVIDIA GPU chip">
 
         <p>
-            A microcontroller goes further by integrating a processor
-            with memory and peripherals such as timers, communication
-            interfaces and GPIO. This makes it useful for embedded
-            systems and electronics projects.
+            GPU architecture determines how graphics and parallel
+            workloads are processed. NVIDIA GPUs use CUDA cores for
+            general parallel processing, Tensor Cores for supported
+            AI operations and RT Cores for ray tracing.
         </p>
 
-        <!-- Add a microprocessor image here later -->
-    </section>
+        <div class="explorer">
+            <p class="label">INTERACTIVE HARDWARE NOTES</p>
+            <h3 id="tech-title">Tensor Cores</h3>
 
-    <hr>
-
-    <section id="cycle">
-        <p class="label">INTERACTIVE / 001</p>
-        <h2>A basic instruction cycle</h2>
-        <p>Follow the three main stages of a simplified CPU instruction.</p>
-
-        <div class="cycle-box">
-            <div id="step-number">01</div>
-            <h3 id="step-title">Fetch</h3>
-            <p id="step-info">
-                The processor retrieves the next instruction.
+            <p id="tech-info">
+                Specialized hardware accelerates supported AI and
+                matrix operations.
             </p>
-            <button id="next-step">Next stage →</button>
+
+            <button class="tech active"
+                    data-title="Tensor Cores"
+                    data-info="Specialized hardware accelerates supported AI and matrix operations.">
+                Tensor
+            </button>
+
+            <button class="tech"
+                    data-title="RT Cores"
+                    data-info="Dedicated hardware accelerates ray-tracing operations used in supported graphics workloads.">
+                RT Cores
+            </button>
+
+            <button class="tech"
+                    data-title="CUDA Cores"
+                    data-info="Parallel processing units execute many graphics and compute operations across GPU workloads.">
+                CUDA
+            </button>
         </div>
+
+        <a class="link"
+           href="https://www.nvidia.com/en-in/geforce/"
+           target="_blank" rel="noopener noreferrer">
+            Explore NVIDIA GeForce ↗
+        </a>
+    </section>
+
+    <section class="reading">
+        <p class="label">04 / FURTHER READING</p>
+        <h2>Official resources</h2>
+
+        <p><a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
+              target="_blank" rel="noopener noreferrer">
+            NVIDIA DGX Spark — product and specifications ↗</a></p>
+
+        <p><a href="https://www.nvidia.com/en-in/geforce/laptops/50-series/"
+              target="_blank" rel="noopener noreferrer">
+            NVIDIA GeForce RTX 50-series laptops ↗</a></p>
+
+        <p><a href="https://www.nvidia.com/en-in/geforce/laptops/40-series/"
+              target="_blank" rel="noopener noreferrer">
+            NVIDIA GeForce RTX 40-series laptops ↗</a></p>
+
+        <p><a href="https://docs.nvidia.com/"
+              target="_blank" rel="noopener noreferrer">
+            NVIDIA technical documentation ↗</a></p>
     </section>
 </main>
 
 <footer>
     <h3>OSIS<span>.</span></h3>
-    <p>Independent notes on CPUs, microprocessors and computing hardware.</p>
+    <p>A personal notebook on NVIDIA hardware, GPUs and AI computing.</p>
     <p>
-        Built with HTML, CSS and JavaScript.
+        <a href="https://github.com/bad-Things6856/osis"
+           target="_blank" rel="noopener noreferrer">
+            GitHub repository ↗
+        </a>
     </p>
-    <a href="https://github.com/bad-Things6856/osis"
-       target="_blank" rel="noopener noreferrer">
-        GitHub Repository ↗
-    </a>
-    <p class="copyright">© 2026 OSIS · Learning through hardware.</p>
+    <p class="copyright">Independent project · 2026</p>
 </footer>
 
 <script src="script.js"></script>
