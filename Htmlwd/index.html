@@ -4,93 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSIS | CPU Architecture</title>
+    <title>OSIS | Computing & Architecture</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">OSIS.</a>
-        <nav>
-            <a href="#cpu">CPU</a>
-            <a href="#components">Components</a>
-            <a href="#microprocessor">Microprocessor</a>
-        </nav>
-    </header>
+<header>
+    <h2>OSIS<span>.</span></h2>
+    <nav>
+        <a href="#cpu">CPU</a>
+        <a href="#laptops">Laptops</a>
+        <a href="#microprocessors">Microprocessors</a>
+    </nav>
+</header>
 
-    <main>
-        <section class="intro">
-            <p class="tag">COMPUTER ARCHITECTURE / 01</p>
-            <h1>Inside the <span>CPU.</span></h1>
-            <p>Understanding the hardware that processes instructions,
-               performs calculations and runs computer systems.</p>
-        </section>
+<main>
+    <section class="intro">
+        <p class="label">NOTES ON COMPUTING / 001</p>
+        <h1>Understanding<br>what's inside.</h1>
+        <p>
+            A small collection of notes about processors, laptop hardware
+            and the technology that makes modern computing possible.
+        </p>
+    </section>
 
-        <section id="cpu">
-            <h2>How a CPU works</h2>
-            <p class="subtext">Select a component to learn more.</p>
+    <hr>
 
-            <div class="cpu-layout">
-                <div class="panel">
-                    <div class="chip">CPU</div>
+    <section id="cpu">
+        <p class="label">01 / PROCESSING</p>
+        <h2>The CPU</h2>
+        <p>
+            The Central Processing Unit executes program instructions,
+            performs calculations and coordinates operations within
+            a computer. Its performance depends on more than clock speed:
+            architecture, core count, cache and power limits matter too.
+        </p>
 
-                    <div class="components" id="components">
-                        <button class="part active"
-                            data-info="The ALU performs arithmetic calculations and logical comparisons.">
-                            ALU
-                        </button>
-                        <button class="part"
-                            data-info="The Control Unit coordinates instructions and directs operations inside the CPU.">
-                            Control Unit
-                        </button>
-                        <button class="part"
-                            data-info="Registers are small, fast storage locations used while instructions execute.">
-                            Registers
-                        </button>
-                        <button class="part"
-                            data-info="Cache keeps frequently used data close to the processor for faster access.">
-                            Cache
-                        </button>
-                    </div>
-                </div>
+        <!-- Add a CPU image here later -->
 
-                <div class="panel info">
-                    <p class="tag">COMPONENT DETAILS</p>
-                    <h3 id="part-title">ALU</h3>
-                    <p id="part-info">
-                        The ALU performs arithmetic calculations and logical comparisons.
-                    </p>
-                </div>
+        <div class="processor">
+            <div class="processor-title">CPU / INTERNAL UNITS</div>
+
+            <button class="part active"
+                data-info="The ALU handles arithmetic operations and logical comparisons.">
+                ALU
+            </button>
+
+            <button class="part"
+                data-info="The Control Unit coordinates instruction execution and directs other units.">
+                Control Unit
+            </button>
+
+            <button class="part"
+                data-info="Registers are tiny, fast storage locations used during instruction execution.">
+                Registers
+            </button>
+
+            <button class="part"
+                data-info="Cache keeps frequently needed data close to the processor to reduce access delays.">
+                Cache
+            </button>
+
+            <p id="part-info" aria-live="polite">
+                The ALU handles arithmetic operations and logical comparisons.
+            </p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="laptops">
+        <p class="label">02 / PORTABLE COMPUTING</p>
+        <h2>Inside a laptop</h2>
+        <p>
+            A laptop is a balance between performance, battery life,
+            temperature and size. Its processor shares a limited power
+            and cooling budget with the rest of the system.
+        </p>
+
+        <!-- Add a laptop image here later -->
+
+        <div class="facts">
+            <div>
+                <h3>Cooling</h3>
+                <p>Heat pipes, fans or vapor chambers move heat away from hot components.</p>
             </div>
-        </section>
 
-        <section id="microprocessor">
-            <h2>CPU vs Microprocessor</h2>
-            <div class="panel">
-                <p>A CPU is the unit that executes program instructions.
-                   A microprocessor is an integrated circuit that implements
-                   a CPU, sometimes with additional features.</p>
-                <p>A microcontroller combines a processor with memory
-                   and peripherals such as timers and GPIO on one chip.</p>
+            <div>
+                <h3>Memory</h3>
+                <p>RAM holds active programs and data so the CPU can access them quickly.</p>
             </div>
-        </section>
 
-        <section>
-            <h2>Instruction cycle</h2>
-            <div class="panel">
-                <p class="subtext">A simplified view of instruction execution.</p>
-
-                <div class="cycle" id="cycle">01 — Fetch instruction</div>
-
-                <button id="next-step">Next step →</button>
+            <div>
+                <h3>Power</h3>
+                <p>Processors adjust their operating speed and power to meet workload and thermal limits.</p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        OSIS · Computer Architecture
-    </footer>
+    <hr>
 
-    <script src="script.js"></script>
+    <section id="microprocessors">
+        <p class="label">03 / INTEGRATED HARDWARE</p>
+        <h2>Microprocessors</h2>
+        <p>
+            A microprocessor is an integrated circuit that implements
+            a processor. Modern chips can contain multiple CPU cores,
+            cache and other supporting hardware.
+        </p>
+
+        <p>
+            A microcontroller goes further by integrating a processor
+            with memory and peripherals such as timers, communication
+            interfaces and GPIO. This makes it useful for embedded
+            systems and electronics projects.
+        </p>
+
+        <!-- Add a microprocessor image here later -->
+    </section>
+
+    <hr>
+
+    <section id="cycle">
+        <p class="label">INTERACTIVE / 001</p>
+        <h2>A basic instruction cycle</h2>
+        <p>Follow the three main stages of a simplified CPU instruction.</p>
+
+        <div class="cycle-box">
+            <div id="step-number">01</div>
+            <h3 id="step-title">Fetch</h3>
+            <p id="step-info">
+                The processor retrieves the next instruction.
+            </p>
+            <button id="next-step">Next stage →</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <h3>OSIS<span>.</span></h3>
+    <p>Independent notes on CPUs, microprocessors and computing hardware.</p>
+    <p>
+        Built with HTML, CSS and JavaScript.
+    </p>
+    <a href="https://github.com/bad-Things6856/osis"
+       target="_blank" rel="noopener noreferrer">
+        GitHub Repository ↗
+    </a>
+    <p class="copyright">© 2026 OSIS · Learning through hardware.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
