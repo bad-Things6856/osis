@@ -1,114 +1,49 @@
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
-    background: #101216;
-    color: #e4e7eb;
+    background: #10130f;
+    color: #e5e8e2;
     font: 16px/1.7 Arial, sans-serif;
 }
 
-/* Hardware image background */
-.hardware-bg {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-    pointer-events: none;
-    background: #101216;
-}
-
-.hardware-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(90deg, #101216 0%, #101216bb 45%, #101216 100%),
-        linear-gradient(0deg, #101216 3%, transparent 65%, #10121699);
-}
-
-.hardware-bg img {
-    position: absolute;
-    width: 38%;
-    height: 45%;
-    object-fit: cover;
-    opacity: 0.27;
-    filter: saturate(0.7);
-}
-
-/* Image positions */
-.bg-cpu {
-    top: 8%;
-    right: -8%;
-}
-
-.bg-laptop {
-    top: 38%;
-    left: -15%;
-}
-
-.bg-gpu {
-    bottom: -10%;
-    right: -8%;
-}
-
-.bg-spark {
-    top: 55%;
-    left: 55%;
-}
-
-/* Keep the website above the images */
 header, main, footer {
-    position: relative;
-    z-index: 1;
-    padding: 22px max(6%, calc((100% - 900px) / 2));
+    padding: 22px max(6%, calc((100% - 950px) / 2));
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #30333b;
-    background: #10121655;
+    border-bottom: 1px solid #30392f;
 }
 
-header h2, footer h3 {
-    letter-spacing: 2px;
+.logo {
+    color: #8bc34a;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span, footer span {
+    color: #b5e66d;
+}
+
+nav a, a {
+    color: #a7d66c;
+    text-decoration: none;
+}
+
+nav a {
+    margin-left: 14px;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 66px);
+    line-height: 1.1;
 }
 
 h2, h3, .label {
-    color: #9bbcff;
-}
-
-header span, footer span {
-    color: #e1a76b;
-}
-
-nav a, footer a {
-    color: #b7c9ed;
-    text-decoration: none;
-    margin-right: 12px;
-}
-
-nav a:hover, footer a:hover {
-    color: white;
-}
-
-.intro {
-    padding-top: 55px;
-    padding-bottom: 55px;
-}
-
-.intro h1 {
-    font-size: clamp(38px, 7vw, 62px);
-    line-height: 1.1;
-    color: white;
+    color: #a7d66c;
 }
 
 .label {
@@ -116,76 +51,84 @@ nav a:hover, footer a:hover {
     letter-spacing: 2px;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid #30333b;
-    margin: 35px 0;
+.hero {
+    padding: 55px 0;
+}
+
+.hero-image, .feature-image {
+    display: block;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin: 22px 0;
+    border: 1px solid #30392f;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #8bc34a;
+    color: #10130f;
+    margin-top: 12px;
 }
 
 section {
-    margin-bottom: 40px;
+    margin: 45px 0;
     scroll-margin-top: 20px;
 }
 
-.processor, .cycle-box, .facts > div {
-    border: 1px solid #454b58;
-    padding: 20px;
-    margin-top: 20px;
-    background: #191c23dd;
-}
-
-.processor, .cycle-box {
-    max-width: 520px;
-}
-
-.processor-title {
-    border: 1px solid #657ca3;
-    text-align: center;
-    padding: 12px;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-
-button {
-    padding: 10px 13px;
-    margin: 3px;
-    background: #242833;
-    color: white;
-    border: 1px solid #414958;
-    cursor: pointer;
-}
-
-button:hover, button.active {
-    border-color: #9bbcff;
-    background: #303d53;
-}
-
-#part-info, #step-info {
-    color: #b8beca;
-}
-
-.facts {
+.specs, .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 12px;
+    margin: 22px 0;
 }
 
-#step-number {
-    color: #e1a76b;
+.specs div, .cards article, .explorer {
+    padding: 16px;
+    background: #191e18;
+    border: 1px solid #343d31;
+}
+
+.specs strong, .specs span {
+    display: block;
+}
+
+.specs strong {
+    color: #a7d66c;
+}
+
+.specs span, .copyright {
+    color: #a4aa9e;
     font-size: 13px;
 }
 
-footer {
-    border-top: 1px solid #30333b;
-    color: #a3a8b3;
-    font-size: 14px;
-    background: #10121688;
+.link {
+    display: inline-block;
+    margin-top: 12px;
 }
 
-.copyright {
-    font-size: 12px;
-    color: #777e8b;
-    margin-top: 25px;
+.tech {
+    background: #242a22;
+    color: white;
+    border: 1px solid #485341;
+    padding: 9px 13px;
+    cursor: pointer;
+}
+
+.tech.active, .tech:hover {
+    border-color: #a7d66c;
+    color: #b5e66d;
+}
+
+.reading p {
+    border-bottom: 1px solid #30392f;
+    padding-bottom: 10px;
+}
+
+footer {
+    border-top: 1px solid #30392f;
+    color: #a4aa9e;
 }
 
 @media (max-width: 600px) {
@@ -195,36 +138,10 @@ footer {
     }
 
     nav a {
-        margin-right: 10px;
-        font-size: 14px;
+        margin: 0 12px 0 0;
     }
 
-    .facts {
+    .specs, .cards {
         grid-template-columns: 1fr;
-    }
-
-    .hardware-bg img {
-        width: 75%;
-        height: 30%;
-        opacity: 0.16;
-    }
-
-    .bg-cpu {
-        top: 15%;
-        right: -25%;
-    }
-
-    .bg-laptop {
-        top: 45%;
-        left: -35%;
-    }
-
-    .bg-gpu {
-        bottom: 0;
-        right: -25%;
-    }
-
-    .bg-spark {
-        display: none;
     }
 }
