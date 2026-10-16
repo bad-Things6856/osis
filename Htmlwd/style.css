@@ -1,13 +1,144 @@
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
-    background: #101216;
-   
+    background: #111318;
+    color: #dedfe4;
+    font: 16px/1.7 Arial, sans-serif;
+}
+
+header, main, footer {
+    padding: 22px max(6%, calc((100% - 900px) / 2));
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30333b;
+}
+
+h2, h3, .label {
+    color: #9bbcff;
+}
+
+header h2, footer h3 {
+    letter-spacing: 2px;
+}
+
+header span, footer span {
+    color: #e1a76b;
+}
+
+nav a, footer a {
+    color: #b7c9ed;
+    text-decoration: none;
+    margin-right: 12px;
+}
+
+nav a:hover, footer a:hover {
+    color: white;
+}
+
+.intro {
+    padding: 55px 0;
+}
+
+.intro h1 {
+    font-size: clamp(38px, 7vw, 62px);
+    line-height: 1.1;
+    color: white;
+}
+
+.label {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #30333b;
+    margin: 35px 0;
+}
+
+section {
+    scroll-margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.processor, .cycle-box {
+    border: 1px solid #454b58;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 520px;
+    background: #191c23;
+}
+
+.processor-title {
+    border: 1px solid #657ca3;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+button {
+    padding: 10px 13px;
+    margin: 3px;
+    background: #242833;
+    color: white;
+    border: 1px solid #414958;
+    cursor: pointer;
+}
+
+button:hover, button.active {
+    border-color: #9bbcff;
+    background: #303d53;
+}
+
+#part-info, #step-info {
+    color: #b8beca;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.facts > div {
+    padding: 15px;
+    border: 1px solid #30333b;
+}
+
+#step-number {
+    color: #e1a76b;
+    font-size: 13px;
+}
+
+footer {
+    border-top: 1px solid #30333b;
+    color: #a3a8b3;
+    font-size: 14px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #777e8b;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav a {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .facts {
+        grid-template-columns: 1fr;
+    }
+}
