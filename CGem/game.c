@@ -7,7 +7,7 @@
 
 int main(void)
 {
-    InitWindow(SCREEN_W, SCREEN_H, "Zombie Runner");
+    InitWindow(SCREEN_W, SCREEN_H, "run for yur life");
     SetTargetFPS(60);
 
     float zombieX = 850;
@@ -32,8 +32,10 @@ int main(void)
             bgX -= 30 * dt;
             groundX -= 220 * dt;
 
-            if (bgX <= -200) bgX = 0;
-            if (groundX <= -40) groundX = 0;
+            if (bgX <= -200)
+                bgX = 0;
+            if (groundX <= -40)
+                groundX = 0;
 
             // Move zombie toward the fixed player
             zombieX -= zombieSpeed * dt;
@@ -54,7 +56,7 @@ int main(void)
                 attacking = true;
                 attackTimer = 0.2f;
 
-                if (zombieX < 280 && zombieX > 100)
+                if (zombieX < 180 && zombieX > 100) // first is lest distance btw, sec wer u die
                 {
                     score += 10;
                     zombieX = 850;
@@ -85,18 +87,8 @@ int main(void)
         {
             float x = i * 180 + bgX;
 
-            DrawRectangle((int)x, 180, 90, 200,
-                          (Color){35, 40, 55, 255});
-
-            DrawRectangle((int)x + 100, 230, 60, 150,
-                          (Color){45, 45, 60, 255});
-
-            // Building windows
-            for (int j = 0; j < 3; j++)
-            {
-                DrawRectangle((int)x + 15 + j * 22,
-                              205, 10, 15, GOLD);
-            }
+            DrawRectangle((int)x, 180, 90, 300,
+                          (Color){35, 10, 155, 55});
         }
 
         // Ground
@@ -111,26 +103,21 @@ int main(void)
         }
 
         // Fixed player
-        DrawRectangle(75, 305, 35, 55, BLUE);
+        DrawRectangle(75, 305, 35, 85, BLUE);
         DrawCircle(92, 290, 17, BEIGE);
-        DrawRectangle(68, 350, 16, 30, DARKBLUE);
-        DrawRectangle(102, 350, 16, 30, DARKBLUE);
-
         // Sword slash
         if (attacking)
         {
             DrawLineEx((Vector2){105, 315},
-                       (Vector2){175, 275}, 8, YELLOW);
+                       (Vector2){175, 275}, 5, YELLOW);
             DrawCircleLines(145, 300, 35, ORANGE);
         }
 
         // Zombie
-        DrawRectangle((int)zombieX, 310, 40, 55, GREEN);
+        DrawRectangle((int)zombieX, 310, 40, 85, GREEN);
         DrawCircle((int)zombieX + 20, 292, 18, LIME);
         DrawCircle((int)zombieX + 13, 288, 3, RED);
         DrawCircle((int)zombieX + 27, 288, 3, RED);
-        DrawRectangle((int)zombieX + 3, 360, 12, 20, DARKGREEN);
-        DrawRectangle((int)zombieX + 25, 360, 12, 20, DARKGREEN);
 
         // UI
         DrawText("ZOMBIE RUNNER", 20, 20, 25, RAYWHITE);
