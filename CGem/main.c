@@ -58,7 +58,7 @@ int main(void)
 
                 if (zombieX < 180 && zombieX > 100) // first is lest distance btw, sec wer u die
                 {
-                    score += 10;
+                    score += 1;
                     zombieX = 850;
 
                     zombieSpeed += 8;
