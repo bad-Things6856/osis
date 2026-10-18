@@ -28,7 +28,7 @@ int main(void)
 
         if (!gameOver)
         {
-            // Scroll the background and ground
+            //bg moving thingi
             bgX -= 30 * dt;
             groundX -= 220 * dt;
 
@@ -37,10 +37,10 @@ int main(void)
             if (groundX <= -40)
                 groundX = 0;
 
-            // Move zombie toward the fixed player
+            //formula like for speed 
             zombieX -= zombieSpeed * dt;
 
-            // Zombie reaches player
+            //like hp, n how he dies
             if (zombieX < 110)
             {
                 health--;
@@ -50,7 +50,7 @@ int main(void)
                     gameOver = true;
             }
 
-            // Slash attack
+            //so it takes keyboard key and count as attack
             if (IsKeyPressed(KEY_SPACE) && !attacking)
             {
                 attacking = true;
@@ -76,13 +76,10 @@ int main(void)
 
         BeginDrawing();
 
-        // Sky
+        //bgcolor
         ClearBackground((Color){20, 25, 45, 255});
 
-        // Moon
-        DrawCircle(680, 70, 30, LIGHTGRAY);
-
-        // Moving background buildings
+        //like bg structure
         for (int i = 0; i < 6; i++)
         {
             float x = i * 180 + bgX;
@@ -91,21 +88,21 @@ int main(void)
                           (Color){35, 10, 155, 55});
         }
 
-        // Ground
+        //road
         DrawRectangle(0, 380, SCREEN_W, 70,
                       (Color){65, 65, 65, 255});
 
-        // Moving road markings
+        //lines on road
         for (int i = 0; i < 22; i++)
         {
             DrawRectangle((int)(i * 40 + groundX),
                           410, 20, 5, RAYWHITE);
         }
 
-        // Fixed player
+        //like the player
         DrawRectangle(75, 305, 35, 85, BLUE);
         DrawCircle(92, 290, 17, BEIGE);
-        // Sword slash
+        //attack item btw vectr he dies on line 59
         if (attacking)
         {
             DrawLineEx((Vector2){105, 315},
@@ -113,32 +110,32 @@ int main(void)
             DrawCircleLines(145, 300, 35, ORANGE);
         }
 
-        // Zombie
+        //aatacker green guy
         DrawRectangle((int)zombieX, 310, 40, 85, GREEN);
         DrawCircle((int)zombieX + 20, 292, 18, LIME);
         DrawCircle((int)zombieX + 13, 288, 3, RED);
         DrawCircle((int)zombieX + 27, 288, 3, RED);
 
-        // UI
-        DrawText("ZOMBIE RUNNER", 20, 20, 25, RAYWHITE);
-        DrawText(TextFormat("Score: %d", score),
+        //top bar thingi names n all ig
+        DrawText("keep runini", 20, 20, 25, RAYWHITE);
+        DrawText(TextFormat("10xper kill: %d", score),
                  20, 55, 20, GOLD);
         DrawText(TextFormat("Health: %d", health),
                  650, 20, 20, RED);
-        DrawText("SPACE = SLASH", 280, 20, 20, RAYWHITE);
+        DrawText("SPACE = attack", 280, 20, 20, RAYWHITE);
 
-        if (gameOver)
+        if (gameOver)// like stuff  if u die
         {
             DrawRectangle(0, 0, SCREEN_W, SCREEN_H,
                           (Color){0, 0, 0, 180});
 
             DrawText("GAME OVER", 280, 170, 40, RED);
-            DrawText(TextFormat("Final Score: %d", score),
+            DrawText(TextFormat("total killxd10: %d", score),
                      300, 225, 25, RAYWHITE);
-            DrawText("Press ENTER to restart",
+            DrawText("ENTER to start agin",
                      260, 275, 20, YELLOW);
 
-            if (IsKeyPressed(KEY_ENTER))
+            if (IsKeyPressed(KEY_ENTER)) // whats happen if u press enter
             {
                 zombieX = 850;
                 zombieSpeed = 180;
